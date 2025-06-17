@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "helvetica";
+  src: url("../assets/fonts/helveticanowvar.ttf");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("../assets/fonts/robotomonovariable.ttf");
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Morph Button -- SVG Manipulation */
+.morph-btn {
+  position: relative;
+  width: 125px;
+  height: 54px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  font-family: sans-serif;
+}
+
+.morph-btn-stagger-wrapper {
+  cursor: pointer;
+  user-select: none;
+  line-height: 0.9;
+  color: #ffffff;
+}
+
+.morph-btn-stagger__text-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-stagger__text {
+  position: relative;
+  z-index: 1;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  line-height: 34px;
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.morph-btn-svg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.morph-btn-svg-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.morph-btn-svg-wrap #morphBtnTarget {
+  display: none;
+}

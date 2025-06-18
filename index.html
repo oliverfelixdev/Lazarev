@@ -15,17 +15,20 @@
     <main>
         <header>
             <nav class="navbar">
+                <!-- LOGO OF NAVABAR -->
                 <div class="nav-logo">
                     <a href="index.html">
                         <img src="./assets/img/lazarev__logo.svg" alt="logo not found">
                     </a>
                 </div>
+
+                <!-- NAV LINK CONTAINER -->
                 <div class="nav-links-container">
                     <a href="#" class="nav-link">WHAT WE DO </a>
                     <a href="#" class="nav-link">CASES</a>
                     <a href="#" class="nav-link">OUTCOMES</a>
                     <a href="#" class="nav-link">NEWS</a>
-                    <button class="morph-btn">
+                    <button class="morph-btn morph-btn-lets">
                         <div class="morph-btn-stagger-wrapper" anm-stagger-btn="wrap" anm-direction="up"
                             anm-reverse="false" anm-stagger="0.0055" anm-delay="0" anm-duration="0.9"
                             anm-ease="elastic.out(.1,0.33)" anm-custom="y:0px">
@@ -33,11 +36,13 @@
                                 <span class="btn-stagger__text" anm-stagger-btn="text">LET'S TALK</span>
                             </div>
                         </div>
-                        <div class="morph-btn-svg-wrap">
+                        <div class="morph-btn-svg-wrap morph-btn-lets-svg-wrap">
                             <svg viewBox="0 0 85 34" xmlns="http://www.w3.org/2000/svg" stroke-width="1">
                                 <path id="morphBtnShape"
                                     d="M70.61228243435131,4.465074399728489 L70.61228243435131,4.465074399728489 Q84.25828117735838,4.460039455645129,84.26237597043259,18.106038513152143 L84.26158337005897,15.46467819153964 Q84.26567816313317,29.110677249046653,70.61967873354835,29.11324874344668 L14.66250742307596,29.123793486131788 Q1.016507993491139,29.126364980531815,1.0130701230840033,15.480365741712415 L1.013739353707133,18.136754579077007 Q1.0103014832999975,4.490755340257609,14.656300226307073,4.485720396174249 Z"
-                                    fill="#0da34e"></path>
+                                    fill="#0da34e"
+                                    data-original="M70.61228243435131,4.465074399728489 L70.61228243435131,4.465074399728489 Q84.25828117735838,4.460039455645129,84.26237597043259,18.106038513152143 L84.26158337005897,15.46467819153964 Q84.26567816313317,29.110677249046653,70.61967873354835,29.11324874344668 L14.66250742307596,29.123793486131788 Q1.016507993491139,29.126364980531815,1.0130701230840033,15.480365741712415 L1.013739353707133,18.136754579077007 Q1.0103014832999975,4.490755340257609,14.656300226307073,4.485720396174249 Z">
+                                </path>
                                 <path id="morphBtnTarget"
                                     d="M75.04051632721433,3.111110698146179 L75.04051632721433,3.111110698146179 Q79.04030559133955,3.152169711635201,79.24794751497268,7.146776679980139 L80.24411008705061,26.31091214164892 Q80.45175201068375,30.30551910999386,76.45219373303834,30.36496306442214 L8.885767713345663,31.369177847750933 Q4.886209435700252,31.428621802179215,4.70312444039704,27.432814013446777 L3.7381837049749866,6.373099644832951 Q3.5550987096717748,2.3772918561005127,7.554887973796987,2.418350869589535 Z">
                                 </path>
@@ -45,31 +50,63 @@
                         </div>
                     </button>
                 </div>
-                <!-- <div class="sm-media-nav">
-                    <div class="sm-media-nav-container">
-                        <a href="#" class="media-nav-link">WHAT WE DO</a>
-                        <a href="#" class="media-nav-link">CASES</a>
-                        <a href="#" class="media-nav-link">OUTCOMES</a>
-                        <a href="#" class="media-nav-link">NEWS</a>
-                        <a href="#" class="media-nav-link">CONTACT</a>
-                    </div>
-                    <div>
-                        <div>LAZAREV ↗ LAZAREV ↗ LAZAREV ↗ LAZAREV ↗ LAZAREV ↗ LAZAREV ↗ LAZAREV ↗ LAZAREV ↗</div>
-                    </div>
-                </div> -->
-                <!-- <button class="toggle-menu-btn">
-                    <span>---</span>
-                    <span>---</span>
-                </button> -->
 
-
+            </nav>
+            <!-- Mobile Navigation -->
+            <nav class="sm-media-nav">
+                <div class="media-nav-top">
+                    <div class="nav-logo">
+                        <a href="index.html">
+                            <img src="./assets/img/lazarev__logo.svg" alt="logo not found">
+                        </a>
+                    </div>
+                    <!-- Menu BUTTON -->
+                    <button class="menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"
+                            class="size-6 menu-btn-svg">
+                            <path id="menu-btn-default"
+                                data-original="M3 9a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9Zm0 6.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                                d="M3 9a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9Zm0 6.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" />
+                            <path id="menu-btn-close"
+                                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="media-nav-link-container">
+                    <a href="index.html" class="media-nav-link">Home</a>
+                    <a href="working.html" class="media-nav-link">Portfolio</a>
+                    <a href="working.html" class="media-nav-link">About us</a>
+                    <a href="working.html" class="media-nav-link">Our Services</a>
+                    <a href="working.html" class="media-nav-link">Contact</a>
+                </div>
+                <div class="cb-tagreel w-full">
+                    <div class="cb-tagreel-content">
+                        <div class="cb-tagreel-items" role="marquee">
+                            <div class="cb-tagreel-row">
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                                <div class="cb-tagreel-item"><span>✦</span></div>
+                                <div class="cb-tagreel-item"><span>LAZAREV</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </header>
     </main>
     <script src="https://unpkg.com/gsap/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap/dist/MorphSVGPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-
+    <script src="https://unpkg.com/reeller@0/dist/reeller.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

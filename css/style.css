@@ -25,17 +25,19 @@ main {
 }
 
 header {
+  height: 100vh;
+  width: 100vw;
   position: relative;
   width: 100%;
 }
 
-nav {
+.navbar {
   width: 100%;
   padding: 0.5rem 4.5rem;
-  border-bottom: 0.1rem solid var(--green);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 0.01rem solid var(--contrast);
 }
 
 .nav-logo img {
@@ -57,4 +59,10 @@ nav {
   &:hover {
     color: var(--green);
   }
+}
+
+/* HIGHLIGHT NAVIGATION -- MOBILE */
+
+.sm-media-nav {
+  display: none;
 }

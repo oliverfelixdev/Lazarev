@@ -113,27 +113,117 @@ let buttonStaggerAnimation = () => {
     });
   });
 };
+buttonStaggerAnimation();
 
 let morphSvgBtn = () => {
-  const morphBtn = document.querySelector(".morph-btn");
-  const morphBtnShape = document.getElementById("morphBtnShape");
-  const morphBtnTarget = document.getElementById("morphBtnTarget");
+  const morphBtns = document.querySelectorAll(".morph-btn");
 
-  morphBtn.addEventListener("mouseenter", () => {
-    buttonStaggerAnimation();
-    gsap.to(morphBtnShape, {
-      duration: 1.5,
-      morphSVG: morphBtnTarget,
-      ease: "elastic.out(1,0.3)",
+  morphBtns.forEach((btn) => {
+    const shape = btn.querySelector("#morphBtnShape");
+    const target = btn.querySelector("#morphBtnTarget");
+    const originalPath = shape.getAttribute("data-original");
+
+    if (!shape || !target) return;
+
+    btn.addEventListener("mouseenter", () => {
+      gsap.to(shape, {
+        duration: 1.5,
+        morphSVG: { shape: target, map: "complexity" },
+        ease: "elastic.out(1,0.3)",
+      });
     });
-  });
 
-  morphBtn.addEventListener("mouseleave", () => {
-    gsap.to(morphBtnShape, {
-      duration: 2,
-      morphSVG: morphBtnShape,
-      ease: "elastic.out(.1,0.3)",
+    btn.addEventListener("mouseleave", () => {
+      gsap.to(shape, {
+        duration: 1,
+        morphSVG: { shape: originalPath, map: "complexity" },
+        ease: "elastic.out(.1,0.3)",
+        // ease: "slow(10.7,10.7,true)",
+      });
     });
   });
 };
 morphSvgBtn();
+
+let menuBtnConfig = () => {
+  const menuBtn = document.querySelector(".menu-btn");
+  const btnDef = document.querySelector("#menu-btn-default");
+  const btnClose = document.querySelector("#menu-btn-close");
+  const mediaNav = document.querySelector(".sm-media-nav");
+
+  let isOpen = false;
+
+  const navTimeline = gsap.timeline({ paused: true });
+
+  navTimeline.fromTo(
+    mediaNav,
+    {
+      height: "3.5rem",
+      opacity: 1,
+    },
+    {
+      height: "auto",
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.inOut",
+    }
+  );
+
+  navTimeline.from(
+    ".media-nav-link",
+    {
+      y: 50,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.07,
+    },
+    "<"
+  );
+
+  menuBtn.addEventListener("click", () => {
+    gsap.to(btnDef, {
+      duration: 0.8,
+      ease: "circ.inOut",
+      morphSVG: {
+        shape: isOpen ? btnDef.dataset.original : btnClose,
+        shapeIndex: -9,
+        type: "linear",
+        map: "position",
+      },
+    });
+
+    if (isOpen) {
+      navTimeline.reverse();
+    } else {
+      navTimeline.play();
+    }
+
+    isOpen = !isOpen;
+  });
+};
+menuBtnConfig();
+
+let reeller = () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const rows = document.querySelectorAll(".cb-tagreel-row");
+
+    rows.forEach((e, i) => {
+      let row_width = e.getBoundingClientRect().width;
+      let row_item_width = e.children[0].getBoundingClientRect().width;
+      let initial_offset = ((2 * row_item_width) / row_width) * 100 * -1;
+
+      gsap.set(e, {
+        xPercent: initial_offset,
+      });
+
+      gsap.timeline().to(e, {
+        ease: "none",
+        duration: 8,
+        xPercent: 0,
+        repeat: -1,
+      });
+    });
+  });
+};
+reeller();

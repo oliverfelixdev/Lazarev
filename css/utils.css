@@ -16,9 +16,9 @@ a {
 .morph-btn {
   position: relative;
   width: 125px;
-  height: 54px;
+  height: 50px;
   border: none;
-  padding: 0;
+  border-radius: 5rem;
   cursor: pointer;
   background: none;
   font-family: sans-serif;
@@ -35,6 +35,7 @@ a {
   display: inline-block;
   position: relative;
   overflow: hidden;
+  background-color: red;
 }
 
 .btn-stagger__text {
@@ -69,4 +70,46 @@ a {
 
 .morph-btn-svg-wrap #morphBtnTarget {
   display: none;
+}
+
+/* BTN CLOSE ___ MENU BTN */
+.menu-btn {
+  display: none;
+  position: relative;
+}
+
+#menu-btn-close {
+  visibility: hidden;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* reeler */
+.cb-tagreel {
+  position: relative;
+  background-color: var(--green);
+}
+
+.cb-tagreel-items {
+  overflow: hidden;
+}
+
+.cb-tagreel-row {
+  display: flex;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  gap: 1rem;
+}
+
+.cb-tagreel-item {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.cb-tagreel-item span {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
 }

@@ -84,32 +84,7 @@ a {
   pointer-events: none;
 }
 
-/* reeler */
-.cb-tagreel {
-  position: relative;
-  background-color: var(--green);
-}
-
-.cb-tagreel-items {
-  overflow: hidden;
-}
-
-.cb-tagreel-row {
-  display: flex;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  gap: 1rem;
-}
-
-.cb-tagreel-item {
-  position: relative;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.cb-tagreel-item span {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
+/* GREEN TEXT */
+.t--green{
+  color: var(--green);
 }

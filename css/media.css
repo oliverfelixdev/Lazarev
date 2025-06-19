@@ -8,20 +8,24 @@
   }
 
   .sm-media-nav {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: baseline;
-    background-color: var(--black);
-    width: 100%;
-    color: var(--white);
     gap: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 0px 5px 0px,
-      rgba(255, 255, 255, 0.1) 0px 0px 1px 0px;
+    color: var(--white);
+    /* border-radius: 0.5rem; */
+    background-color: var(--black);
+    /* box-shadow: rgba(255, 255, 255, 0.1) 0px 0px 5px 0px,
+      rgba(255, 255, 255, 0.1) 0px 0px 1px 0px; */
     overflow: hidden;
     height: 0;
     opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
   }
 
   .media-nav-top {
@@ -30,6 +34,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1rem;
+  }
+
+  .media-nav-top img {
+    height: 1rem;
   }
 
   .media-nav-link-container {
@@ -60,5 +68,42 @@
     position: relative;
     display: block;
     z-index: 999;
+    background-color: var(--slate);
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .bento-card:nth-child(1),
+  .bento-card:nth-child(2),
+  .bento-card:nth-child(3) {
+    grid-column: span 2;
+    aspect-ratio: 4 / 2.7;
+  }
+
+  /* Bottom 2 wide cards — each spans 3 columns (wide) */
+  .bento-card:nth-child(4) {
+    grid-column: span 3;
+    aspect-ratio: 3 / 1.5;
+  }
+  .bento-card:nth-child(5) {
+    grid-column: span 3;
+    aspect-ratio: 2 / 1.5;
+  }
+
+  .bento-card {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .bento-card .card-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
   }
 }

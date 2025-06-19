@@ -85,6 +85,21 @@ a {
 }
 
 /* GREEN TEXT */
-.t--green{
+.t--green {
   color: var(--green);
+}
+
+.play-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.mf-cursor {
+  mix-blend-mode: difference !important;
+  color: var(--green);
+}
+
+.mf-cursor__inner {
+  background: currentColor !important;
 }

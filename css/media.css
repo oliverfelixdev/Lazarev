@@ -52,6 +52,10 @@
     border-bottom: 0.001rem solid #ffffff2a;
   }
 
+  .primary-text-content {
+    padding: 5rem 2rem;
+  }
+
   .menu-btn {
     position: relative;
     display: block;

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aapni Lazarev</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/utils.css">
     <link rel="stylesheet" href="./css/media.css">
+    <link rel="stylesheet" href="./css/mouse-follower.min.css">
 </head>
 
 <body>
@@ -24,11 +25,11 @@
 
                 <!-- NAV LINK CONTAINER -->
                 <div class="nav-links-container">
-                    <a href="#" class="nav-link">WHAT WE DO </a>
-                    <a href="#" class="nav-link">CASES</a>
-                    <a href="#" class="nav-link">OUTCOMES</a>
-                    <a href="#" class="nav-link">NEWS</a>
-                    <button class="morph-btn morph-btn-lets">
+                    <a data-cursor-stick href="#" class="nav-link">WHAT WE DO </a>
+                    <a data-cursor-stick href="#" class="nav-link">CASES</a>
+                    <a data-cursor-stick href="#" class="nav-link">OUTCOMES</a>
+                    <a data-cursor-stick href="#" class="nav-link">NEWS</a>
+                    <button data-cursor-stick class="morph-btn morph-btn-lets">
                         <div class="morph-btn-stagger-wrapper" anm-stagger-btn="wrap" anm-direction="up"
                             anm-reverse="false" anm-stagger="0.0055" anm-delay="0" anm-duration="0.9"
                             anm-ease="elastic.out(.1,0.33)" anm-custom="y:0px">
@@ -50,7 +51,6 @@
                         </div>
                     </button>
                 </div>
-
             </nav>
             <!-- Mobile Navigation -->
             <nav class="sm-media-nav">
@@ -101,20 +101,84 @@
                     </div>
                 </div>
             </nav>
+
         </header>
         <section class="component component--primary">
             <div class="primary-wrapper">
+                <!-- Text content of Landing - Primary -->
                 <div class="primary-text-content">
                     <h1 class="pre-title">
                         <pre>AI + Product Design Agency <span>/</span><span class="opacity-[.40]">/</span><span class="opacity-[.20]">/</span> San Fierro
                     </pre>
                     </h1>
-                    <h1 class="primary-title">UX-First Design Agency <br> for B2B + AI Companies</h1>
+                    <h1 class="primary-title">UX-First Design Agency for B2B + AI Companies</h1>
                     <p class="primary-paragraph">
                         We launch <span class="t--green">MVPs</span> redefine <span class="t--green">existing
                             products</span>
                         & continuously dive into <span class="t--green">customer development</span>
                     </p>
+                </div>
+                <!-- Video content of Primary -->
+                <div class="video-intro-container">
+                    <div data-cursor-text="Play" data-cursor-stick="" class="video-intro-wrapper">
+                        <video class="video-intro" autoplay loop muted preload="lazy"
+                            src="./assets/vids/videoshort.mp4"></video>
+                    </div>
+                </div>
+                <!-- Experiance Sharing in Primary - Bento grid -->
+                <div class="bento-grid">
+                    <div class="bento-card">
+                        <div class="card-wrap">
+                            <span class="card-indexing">/ 01</span>
+                            <div class="card-content">
+                                <h4>$500M+</h4>
+                                <span>in funding secured <br> for our clients</span>
+                            </div>
+                        </div>
+                        <video class="card-video" muted src="./assets/vids/money.mp4"></video>
+                    </div>
+                    <div class="bento-card">
+                        <div class="card-wrap">
+                            <span class="card-indexing">/ 02</span>
+                            <div class="card-content">
+                                <h4>120+</h4>
+                                <span>Awards backing<br> our excellence</span>
+                            </div>
+                        </div>
+                        <video class="card-video" loop muted src="./assets/vids/awards.mp4"></video>
+                    </div>
+                    <div class="bento-card">
+                        <div class="card-wrap">
+                            <span class="card-indexing">/ 03</span>
+                            <div class="card-content">
+                                <h4>2015+</h4>
+                                <span>Founded, 9 years<br> of experience</span>
+                            </div>
+                        </div>
+                        <video class="card-video" loop muted src="./assets/vids/fierro.mp4"></video>
+                    </div>
+
+                    <!-- wide card -->
+                    <div class="bento-card">
+                        <div class="card-wrap">
+                            <span class="card-indexing">/ 04</span>
+                            <div class="card-content">
+                                <h4>San Fierro</h4>
+                                <span>Based in heart of San Andreas</span>
+                            </div>
+                        </div>
+                        <!-- No video -->
+                    </div>
+                    <div class="bento-card">
+                        <div class="card-wrap">
+                            <span class="card-indexing">/ 05</span>
+                            <div class="card-content">
+                                <h4>All-in-one Solution</h4>
+                                <span>From use-research to scalable design system<br>we've got you covered</span>
+                            </div>
+                        </div>
+                        <!-- No video -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -122,7 +186,8 @@
     <script src="https://unpkg.com/gsap/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap/dist/MorphSVGPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-    <script src="https://unpkg.com/reeller@0/dist/reeller.min.js"></script>
+    <script src="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.js"></script>
+
     <script src="./js/script.js"></script>
 </body>
 

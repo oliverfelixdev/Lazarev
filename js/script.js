@@ -227,3 +227,36 @@ let reeller = () => {
   });
 };
 reeller();
+
+let mfCursor = () => {
+  const cursor = new MouseFollower();
+  const vidWrapper = document.querySelector(".video-intro-wrapper");
+
+  vidWrapper.addEventListener("mouseenter", () => {
+    cursor.setSkewing(0.2);
+  });
+
+  vidWrapper.addEventListener("mouseleave", () => {
+    cursor.removeSkewing();
+  });
+
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    cursor.destroy();
+    console.log("JS Hitted");
+  }
+}; // mfCursor();
+
+let cards = document.querySelectorAll(".bento-card");
+
+cards.forEach((card) => {
+  let cardVid = card.querySelector(".card-video");
+  card.addEventListener("mouseenter", () => {
+    cardVid.style.opacity = 1;
+    cardVid.currentTime = 0;
+    cardVid.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    cardVid.style.opacity = 0;
+  });
+});

@@ -1,4 +1,5 @@
 gsap.registerPlugin(MorphSVGPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 let buttonStaggerAnimation = () => {
   const buttons = document.querySelectorAll("[anm-stagger-btn=wrap]");
@@ -315,8 +316,8 @@ const megneticButton = () => {
 
       if (dist < this.distanceToTrigger) {
         if (!this.state.hover) this.enter();
-        x = (this.mousepos.x - (this.rect.left + this.rect.width / 2)) * 0.3;
-        y = (this.mousepos.y - (this.rect.top + this.rect.height / 2)) * 0.3;
+        x = (this.mousepos.x - (this.rect.left + this.rect.width / 2)) * 0.2;
+        y = (this.mousepos.y - (this.rect.top + this.rect.height / 2)) * 0.2;
       } else if (this.state.hover) {
         this.leave();
       }
@@ -423,3 +424,41 @@ const megneticButton = () => {
 window.addEventListener("load", () => {
   setTimeout(megneticButton, 50);
 });
+
+const parallax__playground = () => {
+  const lenis = new Lenis({
+    lerp: 0.07,
+  });
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  let parallaxCon = document.querySelectorAll(".parallax-container");
+  parallaxCon.forEach((parallax) => {
+    let parallaxItem = parallax.querySelector(".parallax-item");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: parallax,
+        scrub: true,
+        pin: false,
+      },
+    });
+
+    tl.fromTo(
+      parallaxItem,
+      {
+        yPercent: -20,
+        ease: "none",
+      },
+      {
+        yPercent: 20,
+        ease: "none",
+      }
+    );
+  });
+};
+parallax__playground();

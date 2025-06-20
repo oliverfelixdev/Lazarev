@@ -5,33 +5,26 @@
 }
 
 body {
-  --button-border-radius: 40px;
-  --button-bg: transparent;
-  --button-stroke: #000;
-  --button-stroke-width: 1px;
+  --button-border-radius: 100px;
+  --button-bg: #fff;
   --button-text: #000;
   --button-bg-hover: #d8d4cf;
-  --button-stroke-hover: #000;
-  --button-stroke-width-hover: 1px;
   --button-text-hover: #fff;
-  --cursor-stroke: #fff;
-  --cursor-fill: #fff;
-  --cursor-stroke-width: 1px;
-  --button-filler: #000;
+  --button-filler: #0da34e;
   --color-bg: #ccc;
 }
 
 .button {
   cursor: pointer;
-  border: var(--button-stroke-width) solid var(--button-stroke);
+  border: none;
   color: var(--button-text);
   background: var(--button-bg);
   border-radius: var(--button-border-radius);
-  min-width: 14rem;
-  height: 6rem;
+  padding: 0 2rem;
+  /* min-width: 14rem; */
+  height: 3.5rem;
   margin: 1rem;
   font-family: sans-serif;
-  font-size: 1.5rem;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -40,7 +33,7 @@ body {
 }
 
 .button--hover {
-  border-color: var(--button-stroke-hover);
+  border: none;
   color: var(--button-text-hover);
 }
 
@@ -64,5 +57,7 @@ body {
   height: 100%;
   position: relative;
   z-index: 1;
-  font-size: 1.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
+

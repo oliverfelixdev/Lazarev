@@ -104,3 +104,12 @@ a {
 .mf-cursor__inner {
   background: currentColor !important;
 }
+
+/* Card opacity classlist -- OPACITY */
+.cardVideo-opacity1 {
+  opacity: 1;
+}
+
+.cardVideo-opacit0 {
+  opacity: 0;
+}

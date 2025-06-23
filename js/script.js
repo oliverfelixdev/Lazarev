@@ -463,4 +463,62 @@ const parallax__playground = () => {
 };
 parallax__playground();
 
-// /////////////////////////////////////////////////////
+let tabsNCards = () => {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+  function showTab(tabName) {
+    projectCards.forEach((card) => {
+      const cardTab = card.getAttribute("data-tab-content");
+
+      if (cardTab === tabName) {
+        card.style.display = "flex";
+
+        // 🟢 Add event listeners to this specific card
+        const video = card.querySelector("video");
+
+        card.addEventListener("mouseenter", () => {
+          if (video) {
+            video.currentTime = 0;
+            video.play();
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    tabButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.tab === tabName);
+    });
+  }
+
+  showTab("ai");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedTab = button.dataset.tab;
+      showTab(selectedTab);
+    });
+  });
+  // Pin Tab Nav
+  const pinnedSection = document.getElementById("pinSection");
+  const nextSection = document.getElementById("endTabNavTrigger");
+
+  ScrollTrigger.create({
+    trigger: pinnedSection,
+    start: "top 3%",
+    endTrigger: nextSection,
+    end: "top top",
+    pin: ".tab-nav",
+    pinSpacing: false,
+    markers: false,
+  });
+};
+tabsNCards();

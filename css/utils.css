@@ -113,3 +113,7 @@ a {
 .cardVideo-opacit0 {
   opacity: 0;
 }
+/* active tabs */
+.tab-btn.active {
+  color: var(--green); /* Optional, adjust to your palette */
+}

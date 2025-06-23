@@ -351,16 +351,25 @@ header {
   display: grid;
   grid-template-columns: 1fr 3fr;
   border-top: 0.0001rem solid var(--border);
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
+}
+
+.tab-pinned-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .tab-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: baseline;
   flex-direction: column;
-  z-index: 10;
+  z-index: 99;
 }
 
 .tab-btn {
@@ -376,6 +385,24 @@ header {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.tab-nav .button {
+  padding: 0;
+  min-width: 18rem;
+  height: 3.5rem;
+  margin: 3rem 0;
+}
+
+.tab-nav .button__filler {
+  background: var(--blue);
+  position: absolute;
+  width: 150%;
+  height: 200%;
+  border-radius: 50%;
+  top: -50%;
+  left: -25%;
+  transform: translate3d(0, 75%, 0);
 }
 
 .tab-content {
@@ -446,4 +473,32 @@ header {
   width: 150px;
   position: absolute;
   bottom: 20%;
+  background-color: lime;
+}
+
+/* contact Section */
+.component-contact {
+  height: 90vh;
+  width: 100vw;
+  position: relative;
+}
+
+.contact-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  height: 100%;
+}
+
+.contact-title-wrapper img {
+  height: 6rem;
+}
+
+.contact-title-wrapper .contact-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 7.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
 }

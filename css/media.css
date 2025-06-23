@@ -106,4 +106,68 @@
     justify-content: flex-start;
     flex-direction: column;
   }
+
+  /* PARALLAX */
+  .innovation-wrapper {
+    padding: 0 2rem;
+  }
+
+  .innovation-wrapper .primary-title {
+    font-size: 3.5rem;
+    width: 70%;
+  }
+
+  .innovation-wrapper .i--paragraph {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+
+  .innovation-wrapper .i--span {
+    font-size: 1.2rem;
+  }
+
+  .i--image-ring {
+    position: absolute;
+    top: -5rem;
+    left: -12rem;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .i--image-geometery {
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .innovation-wrapper .button {
+    margin: 2rem 0 0 0;
+  }
+
+  .featured-paragraph {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    width: 80%;
+    padding: 4rem 0 3rem 0;
+  }
+
+  .projects-tab-section {
+    grid-template-columns: 1fr;
+    border-top: 0.0001rem solid var(--border);
+    overflow-y: auto;
+  }
+
+  .tab-nav {
+    position: initial;
+    width: 100%;
+  }
+
+  .project-card {
+    width: 100%;
+    border-top: 0.0001rem solid var(--border);
+    padding-top: 2rem;
+  }
 }

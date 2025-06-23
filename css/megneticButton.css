@@ -26,7 +26,7 @@ body {
   margin: 1rem;
   font-family: sans-serif;
   overflow: hidden;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -60,4 +60,3 @@ body {
   font-size: 0.75rem;
   font-weight: 600;
 }
-

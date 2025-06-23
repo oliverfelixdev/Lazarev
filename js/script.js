@@ -358,8 +358,80 @@ let tabsNCards = () => {
       end: "top 30%",
       pin: ".tab-nav",
       pinSpacing: false,
-      markers: true,
+      // markers: true,
     });
   }
 };
 tabsNCards();
+
+let contactSvgMorph = () => {
+  const startPath = document.querySelector('path[data-morph="start"]');
+  const endPath = document.querySelector('path[data-morph="end"]');
+  let contactCon = document.querySelector(".component-contact");
+
+  const endD = endPath.getAttribute("d");
+
+  endPath.style.display = "none";
+
+  contactCon.addEventListener("mouseenter", () => {
+    gsap.to(startPath, {
+      duration: 0.4,
+      morphSVG: endD,
+
+      ease: "sine.inOut",
+    });
+  });
+
+  contactCon.addEventListener("mouseleave", () => {
+    gsap.to(startPath, {
+      duration: 0.4,
+      morphSVG: startPath.getAttribute("data-original"),
+      ease: "sine.inOut",
+    });
+  });
+};
+contactSvgMorph();
+
+function faqAccordion() {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const questionWrap = item.querySelector(".faq-question-wrap");
+    const answer = item.querySelector(".faq-answer");
+    const icon = item.querySelector(".faq-icon ion-icon");
+
+    questionWrap.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Close all
+      faqItems.forEach((i) => {
+        i.classList.remove("open");
+        gsap.to(i.querySelector(".faq-answer"), {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.inOut",
+        });
+        i.querySelector(".faq-icon ion-icon").style.transform = "rotate(0deg)";
+      });
+
+      // If not already open, open it
+      if (!isOpen) {
+        item.classList.add("open");
+        answer.style.height = "auto";
+        const height = answer.scrollHeight;
+        answer.style.height = "0px"; // reset before animating
+
+        gsap.to(answer, {
+          height: height,
+          opacity: 1,
+          duration: 0.4,
+          ease: "power2.inOut",
+        });
+
+        icon.style.transform = "rotate(180deg)";
+      }
+    });
+  });
+}
+faqAccordion();

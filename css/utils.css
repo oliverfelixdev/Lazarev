@@ -97,7 +97,7 @@ a {
 
 /* CURSOR - Mouse Follower Coursor */
 .mf-cursor {
-  mix-blend-mode: difference !important;
+  /* mix-blend-mode: difference !important; */
   color: var(--green);
 }
 

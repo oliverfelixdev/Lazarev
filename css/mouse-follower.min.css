@@ -64,7 +64,7 @@
   transform: scale(0) rotate(10deg);
   opacity: 0;
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 20px;
   text-align: center;
   transition: opacity 0.4s, transform 0.3s;

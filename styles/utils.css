@@ -102,7 +102,7 @@ a {
 }
 
 .mf-cursor__inner {
-  background: currentColor !important;
+  background: var(--green) !important;
 }
 
 /* Card opacity classlist -- OPACITY */

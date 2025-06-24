@@ -36,7 +36,7 @@
   transform: scale(0.15);
 }
 .mf-cursor.-text:before {
-  opacity: 0.85;
+  opacity: 1;
   transform: scale(1.7);
 }
 .mf-cursor.-text.-active:before {

@@ -61,7 +61,20 @@
   }
 
   .primary-text-content {
-    padding: 5rem 2rem;
+    padding: 5rem 0rem;
+  }
+
+  .primary-text-content .primary-title {
+    display: none;
+  }
+
+  .primary-text-content .primary-title-sm {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    color: var(--white);
   }
 
   .menu-btn {
@@ -114,15 +127,14 @@
 
   .innovation-wrapper .primary-title {
     font-size: 3.5rem;
-    width: 70%;
   }
 
   .innovation-wrapper .i--paragraph {
-    font-size: 1.2rem;
-    width: 80%;
+    display: none;
   }
 
   .innovation-wrapper .i--span {
+    margin-top: 3rem;
     font-size: 1.2rem;
   }
 
@@ -169,5 +181,73 @@
     width: 100%;
     border-top: 0.0001rem solid var(--border);
     padding-top: 2rem;
+  }
+
+  /* ////////////////////////////////////////////////////////////// */
+  .contact-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .contact-title-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .contact-title {
+    font-size: 4rem;
+  }
+
+  .contact-title img {
+    height: 3rem;
+  }
+
+  .contact-svg {
+    display: none;
+  }
+
+  .contact-desc {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .faq-index {
+    display: none;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    padding: 0rem 0 1.5rem 4.1rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .i--image-ring {
+    display: none;
+  }
+
+  .pre-title {
+    display: none;
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0;
   }
 }

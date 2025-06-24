@@ -64,12 +64,17 @@
     padding: 5rem 0rem;
   }
 
-  .primary-text-content .primary-title {
+  .primary-text-content .primary-title-lg {
     display: none;
   }
 
-  .primary-text-content .primary-title-sm {
-    display: block;
+  .primary-title-sm {
+    display: initial;
+    overflow: hidden;
+  }
+
+  .primary-title-sm span {
+    display: inline-block;
     font-size: 3rem;
     font-weight: 700;
     line-height: 1;

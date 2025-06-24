@@ -8,6 +8,10 @@
   src: url("../assets/fonts/robotomonovariable.ttf");
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -35,7 +39,6 @@ a {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  background-color: red;
 }
 
 .btn-stagger__text {
@@ -116,4 +119,86 @@ a {
 /* active tabs */
 .tab-btn.active {
   color: var(--green); /* Optional, adjust to your palette */
+}
+/* title chars spans */
+.char,
+.char-space {
+  display: inline-block;
+}
+/* CREDITS */
+/* Overlay and modal */
+
+#creditsOverlay {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.credits-modal {
+  background: var(--white);
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 350px;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+}
+
+.credits-image img {
+  width: 100%;
+  max-height: 400px; /* Reduced image height */
+  object-fit: cover;
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.credits-content {
+  padding: 24px;
+  font-family: "Georgia", serif;
+}
+
+.credits-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c2c2c;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.name {
+  font-size: 16px;
+  color: #333;
 }

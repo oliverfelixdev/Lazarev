@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <main>
+    <main id="content">
         <header>
             <nav class="navbar">
                 <!-- LOGO OF NAVABAR -->
@@ -112,9 +112,17 @@
                         <pre>AI + Product Design Agency <span>/</span><span class="opacity-[.40]">/</span><span class="opacity-[.20]">/</span> San Fierro
                     </pre>
                     </h1>
-                    <h1 class="primary-title">UX-First Design Agency <br> for B2B + AI Companies</h1>
-                    <h1 class="primary-title-sm">UX-First Design Agency for B2B + AI Companies</h1>
-                    <p class="primary-paragraph">
+
+                    <h1 class="primary-title-lg anima-title">
+                        <span>UX-First Design Agency <br> for B2B + AI Companies</span>
+                    </h1>
+
+                    <h1 class="primary-title-sm anima-title">
+                        <span>UX-First Design Agency for B2B + AI Companies</span>
+                    </h1>
+
+
+                    <p class="primary-paragraph anima-par">
                         We launch <span class="t--green">MVPs</span> redefine <span class="t--green">existing
                             products</span>
                         & continuously dive into <span class="t--green">customer development</span>
@@ -122,7 +130,7 @@
                 </div>
                 <!-- Video content of Primary -->
                 <div class="video-intro-container">
-                    <div data-cursor-text="Play" data-cursor-stick="" class="video-intro-wrapper">
+                    <div data-cursor-text="PLAY" class="video-intro-wrapper">
                         <video class="video-intro" autoplay loop muted preload="lazy"
                             src="./assets/vids/videoshort.mp4"></video>
                     </div>
@@ -480,7 +488,7 @@
 
                 <div class="footer-connect">
                     <p class="footer-label">LET’S CONNECT:</p>
-                    <button class="footer-button">SEE REPLICA CREDIT</button>
+                    <button class="footer-button credit-show-btn">SEE REPLICA CREDITS</button>
 
                     <p class="footer-label">OUR LOCATION:</p>
                     <p class="footer-location">
@@ -500,6 +508,30 @@
                 </div>
             </div>
         </footer>
+        <section class="overlay" id="creditsOverlay">
+            <div class="credits-modal">
+                <button class="close-btn" onclick="closeCredits()">×</button>
+
+                <div class="credits-image">
+                    <img src="./assets/img/oliver.png" alt="Credits Image" />
+                </div>
+
+                <div class="credits-content">
+                    <h2>Credits</h2>
+                    <div class="credits-grid">
+                        <div>
+                            <p class="label">Code & Animations</p>
+                            <p class="name">Oliver Felix</p>
+                        </div>
+                        <div>
+                            <p class="label">Design</p>
+                            <p class="name">Lazarev Original</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <script src="https://unpkg.com/gsap/dist/gsap.min.js"></script>

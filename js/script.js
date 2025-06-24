@@ -402,46 +402,47 @@ let contactSvgMorph = () => {
 contactSvgMorph();
 
 // Your JSON data stored in JS
-const faqData = [
-  {
-    index: "/00-1",
-    question: "How can your digital product design agency help my startup?",
-    answer:
-      "We're here to support your startup at every stage of its journey, from the initial pre-seed phases to the later Series D and beyond. Whether it's short-term, fast-paced initiatives or long-range strategic plans, we'll be by your side, providing the guidance you need. Our product designers deliver custom-tailored design services based on your business objectives.",
-  },
-  {
-    index: "/00-2",
-    question: "Do you offer only digital product design services?",
-    answer:
-      "Our UI UX designers use Figma to design digital interfaces, while our motion guys use Adobe After Effects to create stunning motion. We also use tools like Maze, Hotjar, and Google Analytics to evaluate user behavior.",
-  },
-  {
-    index: "/00-3",
-    question: "What digital design tools and technologies do you use?",
-    answer:
-      "Our UI UX designers use Figma and our motion designers use After Effects. We combine these with research tools such as Maze and Hotjar to deliver top-tier product experiences.",
-  },
-  {
-    index: "/00-4",
-    question: "How long does the entire design process take?",
-    answer:
-      "Depending on complexity, it could take anywhere from 4 weeks to 6 months. Smaller projects like branding or motion design might take less time.",
-  },
-  {
-    index: "/00-5",
-    question: "How much do you charge for digital product design services?",
-    answer:
-      "Minimum engagement for product design starts at $20k, while smaller services like branding, UI/UX, or motion design start at $5k.",
-  },
-];
+let accordion = () => {
+  const faqData = [
+    {
+      index: "/00-1",
+      question: "How can your digital product design agency help my startup?",
+      answer:
+        "We're here to support your startup at every stage of its journey, from the initial pre-seed phases to the later Series D and beyond. Whether it's short-term, fast-paced initiatives or long-range strategic plans, we'll be by your side, providing the guidance you need. Our product designers deliver custom-tailored design services based on your business objectives.",
+    },
+    {
+      index: "/00-2",
+      question: "Do you offer only digital product design services?",
+      answer:
+        "Our UI UX designers use Figma to design digital interfaces, while our motion guys use Adobe After Effects to create stunning motion. We also use tools like Maze, Hotjar, and Google Analytics to evaluate user behavior.",
+    },
+    {
+      index: "/00-3",
+      question: "What digital design tools and technologies do you use?",
+      answer:
+        "Our UI UX designers use Figma and our motion designers use After Effects. We combine these with research tools such as Maze and Hotjar to deliver top-tier product experiences.",
+    },
+    {
+      index: "/00-4",
+      question: "How long does the entire design process take?",
+      answer:
+        "Depending on complexity, it could take anywhere from 4 weeks to 6 months. Smaller projects like branding or motion design might take less time.",
+    },
+    {
+      index: "/00-5",
+      question: "How much do you charge for digital product design services?",
+      answer:
+        "Minimum engagement for product design starts at $20k, while smaller services like branding, UI/UX, or motion design start at $5k.",
+    },
+  ];
 
-const container = document.getElementById("faqContainer");
+  const container = document.getElementById("faqContainer");
 
-faqData.forEach((item) => {
-  const faqItem = document.createElement("div");
-  faqItem.className = "faq-item";
+  faqData.forEach((item) => {
+    const faqItem = document.createElement("div");
+    faqItem.className = "faq-item";
 
-  faqItem.innerHTML = `
+    faqItem.innerHTML = `
         <div class="faq-question-wrap">
           <div class="faq--wrap">
             <span class="faq-index">${item.index}</span>
@@ -454,10 +455,77 @@ faqData.forEach((item) => {
         </div>
       `;
 
-  // Toggle accordion
-  faqItem.querySelector(".faq-question-wrap").addEventListener("click", () => {
-    faqItem.classList.toggle("active");
-  });
+    // Toggle accordion
+    faqItem
+      .querySelector(".faq-question-wrap")
+      .addEventListener("click", () => {
+        faqItem.classList.toggle("active");
+      });
 
-  container.appendChild(faqItem);
+    container.appendChild(faqItem);
+  });
+};
+accordion();
+
+// ALL text animations ---------------
+let heroTitleAnim = () => {
+  function splitAndAnimate(selector) {
+    const title = document.querySelector(selector);
+    const span = title.querySelector("span");
+
+    const newContent = document.createDocumentFragment();
+
+    span.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const chars = node.textContent.split("");
+        chars.forEach((char) => {
+          const charSpan = document.createElement("span");
+          charSpan.className = char === " " ? "char-space" : "char";
+          charSpan.innerHTML = char === " " ? "&nbsp;" : char;
+          newContent.appendChild(charSpan);
+        });
+      } else {
+        newContent.appendChild(node.cloneNode(true));
+      }
+    });
+
+    span.innerHTML = "";
+    span.appendChild(newContent);
+
+    const charSpans = span.querySelectorAll(".char, .char-space");
+    gsap.from(charSpans, {
+      y: 70,
+      opacity: 0,
+      ease: "power4.out",
+      duration: 1.2,
+      stagger: 0.013,
+    });
+  }
+
+  splitAndAnimate(".primary-title-lg");
+  splitAndAnimate(".primary-title-sm");
+
+  let animPar = document.querySelector(".anima-par");
+  gsap.fromTo(
+    animPar,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      duration: 2,
+      ease: "expo.inOut",
+    }
+  );
+};
+heroTitleAnim();
+
+// Open modal
+document.querySelector(".credit-show-btn").addEventListener("click", () => {
+  document.getElementById("creditsOverlay").style.display = "flex";
 });
+
+// Close modal
+function closeCredits() {
+  document.getElementById("creditsOverlay").style.display = "none";
+}

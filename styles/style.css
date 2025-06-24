@@ -120,10 +120,15 @@ header {
   padding: 5rem 0;
 }
 
-.primary-title {
+.primary-title-lg{
+  text-align: center;
+  overflow: hidden;
+}
+
+.primary-title-lg span{
   font-size: 5rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.29;
   text-align: center;
   color: var(--white);
 }

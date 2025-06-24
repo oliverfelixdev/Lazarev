@@ -146,13 +146,7 @@
   }
 
   .i--image-ring {
-    position: absolute;
-    top: -5rem;
-    left: -12rem;
-    object-fit: cover;
-    object-position: center;
-    height: 100%;
-    width: 100%;
+    display: none;
   }
 
   .i--image-geometery {

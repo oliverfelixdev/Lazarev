@@ -392,46 +392,63 @@ let contactSvgMorph = () => {
 };
 contactSvgMorph();
 
-function faqAccordion() {
-  const faqItems = document.querySelectorAll(".faq-item");
+// Your JSON data stored in JS
+const faqData = [
+  {
+    index: "/00-1",
+    question: "How can your digital product design agency help my startup?",
+    answer:
+      "We're here to support your startup at every stage of its journey, from the initial pre-seed phases to the later Series D and beyond. Whether it's short-term, fast-paced initiatives or long-range strategic plans, we'll be by your side, providing the guidance you need. Our product designers deliver custom-tailored design services based on your business objectives.",
+  },
+  {
+    index: "/00-2",
+    question: "Do you offer only digital product design services?",
+    answer:
+      "Our UI UX designers use Figma to design digital interfaces, while our motion guys use Adobe After Effects to create stunning motion. We also use tools like Maze, Hotjar, and Google Analytics to evaluate user behavior.",
+  },
+  {
+    index: "/00-3",
+    question: "What digital design tools and technologies do you use?",
+    answer:
+      "Our UI UX designers use Figma and our motion designers use After Effects. We combine these with research tools such as Maze and Hotjar to deliver top-tier product experiences.",
+  },
+  {
+    index: "/00-4",
+    question: "How long does the entire design process take?",
+    answer:
+      "Depending on complexity, it could take anywhere from 4 weeks to 6 months. Smaller projects like branding or motion design might take less time.",
+  },
+  {
+    index: "/00-5",
+    question: "How much do you charge for digital product design services?",
+    answer:
+      "Minimum engagement for product design starts at $20k, while smaller services like branding, UI/UX, or motion design start at $5k.",
+  },
+];
 
-  faqItems.forEach((item) => {
-    const questionWrap = item.querySelector(".faq-question-wrap");
-    const answer = item.querySelector(".faq-answer");
-    const icon = item.querySelector(".faq-icon ion-icon");
+const container = document.getElementById("faqContainer");
 
-    questionWrap.addEventListener("click", () => {
-      const isOpen = item.classList.contains("open");
+faqData.forEach((item) => {
+  const faqItem = document.createElement("div");
+  faqItem.className = "faq-item";
 
-      // Close all
-      faqItems.forEach((i) => {
-        i.classList.remove("open");
-        gsap.to(i.querySelector(".faq-answer"), {
-          height: 0,
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.inOut",
-        });
-        i.querySelector(".faq-icon ion-icon").style.transform = "rotate(0deg)";
-      });
+  faqItem.innerHTML = `
+        <div class="faq-question-wrap">
+          <div class="faq--wrap">
+            <span class="faq-index">${item.index}</span>
+            <h4 class="faq-que"><span>${item.question}</span></h4>
+          </div>
+          <span class="faq-icon"><ion-icon name="chevron-down-outline"></ion-icon></span>
+        </div>
+        <div class="faq-answer">
+          <p>${item.answer}</p>
+        </div>
+      `;
 
-      // If not already open, open it
-      if (!isOpen) {
-        item.classList.add("open");
-        answer.style.height = "auto";
-        const height = answer.scrollHeight;
-        answer.style.height = "0px"; // reset before animating
-
-        gsap.to(answer, {
-          height: height,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power2.inOut",
-        });
-
-        icon.style.transform = "rotate(180deg)";
-      }
-    });
+  // Toggle accordion
+  faqItem.querySelector(".faq-question-wrap").addEventListener("click", () => {
+    faqItem.classList.toggle("active");
   });
-}
-faqAccordion();
+
+  container.appendChild(faqItem);
+});

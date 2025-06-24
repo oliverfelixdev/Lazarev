@@ -598,9 +598,8 @@ header {
 }
 
 .faq-item {
-  border-bottom: 1px solid #222;
-  padding: 1.5rem 0;
-  background-color: red;
+  border-top: 0.0001rem solid var(--border);
+  width: 100%;
 }
 
 .faq-question-wrap {
@@ -608,37 +607,59 @@ header {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  padding: 2.25rem 0;
 }
 
 .faq--wrap {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 1.5rem;
+  flex: 1;
 }
 
 .faq-index {
   font-size: 0.7rem;
-  color: #888;
+  color: var(--contrast);
   flex-shrink: 0;
 }
 
 .faq-que {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin: 0;
-  color: #fff;
+}
+
+.faq-que span {
+  display: block;
   text-align: left;
 }
 
 .faq-icon {
+  color: var(--muted-color);
   font-size: 1.2rem;
-  color: #999;
+  transition: transform 0.3s ease;
 }
 
 .faq-answer {
-  padding: 2rem 7rem;
+  max-height: 0;
   overflow: hidden;
-  height: 0;
-  opacity: 0;
-  transition: height 0.4s ease, opacity 0.4s ease;
+  transition: max-height 0.4s ease;
+  padding-right: 2rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0.5rem 0 1rem 4.1rem;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  width: 80%;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
 }

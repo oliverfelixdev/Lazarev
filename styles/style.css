@@ -120,12 +120,12 @@ header {
   padding: 5rem 0;
 }
 
-.primary-title-lg{
+.primary-title-lg {
   text-align: center;
   overflow: hidden;
 }
 
-.primary-title-lg span{
+.primary-title-lg span {
   font-size: 5rem;
   font-weight: 700;
   line-height: 1.29;
@@ -756,4 +756,86 @@ header {
 .footer-columns li {
   margin-bottom: 12px;
   font-size: 0.8rem;
+}
+
+/* CREDITS */
+/* Overlay and modal */
+
+#creditsOverlay {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.credits-modal {
+  background: var(--white);
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 350px;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+}
+
+.credits-image {
+  width: 100%;
+  height: 350px;
+}
+
+.credits-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.credits-content {
+  padding: 1rem;
+}
+
+.credits-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--contrast);
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.name {
+  font-size: 16px;
+  color: #333;
 }

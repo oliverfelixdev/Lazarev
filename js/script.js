@@ -520,12 +520,10 @@ let heroTitleAnim = () => {
 };
 heroTitleAnim();
 
-// Open modal
 document.querySelector(".credit-show-btn").addEventListener("click", () => {
   document.getElementById("creditsOverlay").style.display = "flex";
 });
 
-// Close modal
 function closeCredits() {
   document.getElementById("creditsOverlay").style.display = "none";
 }

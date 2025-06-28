@@ -1,154 +1,156 @@
-const lerp = (a, b, n) => (1 - n) * a + n * b;
-const getMousePos = (e) => ({ x: e.clientX, y: e.clientY });
-const distance = (x1, y1, x2, y2) => Math.hypot(x1 - x2, y1 - y2);
+if (window.matchMedia("(min-width: 768px)").matches) {
+  const lerp = (a, b, n) => (1 - n) * a + n * b;
+  const getMousePos = (e) => ({ x: e.clientX, y: e.clientY });
+  const distance = (x1, y1, x2, y2) => Math.hypot(x1 - x2, y1 - y2);
 
-class ButtonCtrl {
-  constructor(el) {
-    this.DOM = { el };
-    this.DOM.text = el.querySelector(".button__text");
-    this.DOM.textinner = el.querySelector(".button__text-inner");
-    this.DOM.filler = el.querySelector(".button__filler");
+  class ButtonCtrl {
+    constructor(el) {
+      this.DOM = { el };
+      this.DOM.text = el.querySelector(".button__text");
+      this.DOM.textinner = el.querySelector(".button__text-inner");
+      this.DOM.filler = el.querySelector(".button__filler");
 
-    this.renderedStyles = {
-      tx: { previous: 0, current: 0, amt: 0.1 },
-      ty: { previous: 0, current: 0, amt: 0.1 },
-    };
+      this.renderedStyles = {
+        tx: { previous: 0, current: 0, amt: 0.1 },
+        ty: { previous: 0, current: 0, amt: 0.1 },
+      };
 
-    this.state = { hover: false };
-    this.mousepos = { x: 0, y: 0 };
+      this.state = { hover: false };
+      this.mousepos = { x: 0, y: 0 };
 
-    this.initEvents();
-    requestAnimationFrame(() => this.render());
-  }
-
-  calculateSizePosition() {
-    this.rect = this.DOM.el.getBoundingClientRect();
-    this.distanceToTrigger = this.rect.width * 0.7;
-  }
-
-  initEvents() {
-    window.addEventListener("resize", () => this.calculateSizePosition());
-    window.addEventListener("mousemove", (ev) => {
-      this.mousepos = getMousePos(ev);
-    });
-  }
-
-  render() {
-    // 🔥 Update rect *every frame* so each button works independently
-    this.calculateSizePosition();
-
-    const dist = distance(
-      this.mousepos.x,
-      this.mousepos.y,
-      this.rect.left + this.rect.width / 2,
-      this.rect.top + this.rect.height / 2
-    );
-
-    let x = 0,
-      y = 0;
-
-    if (dist < this.distanceToTrigger) {
-      if (!this.state.hover) this.enter();
-      x = (this.mousepos.x - (this.rect.left + this.rect.width / 2)) * 0.2;
-      y = (this.mousepos.y - (this.rect.top + this.rect.height / 2)) * 0.2;
-    } else if (this.state.hover) {
-      this.leave();
+      this.initEvents();
+      requestAnimationFrame(() => this.render());
     }
 
-    this.renderedStyles.tx.current = x;
-    this.renderedStyles.ty.current = y;
-
-    for (const key in this.renderedStyles) {
-      this.renderedStyles[key].previous = lerp(
-        this.renderedStyles[key].previous,
-        this.renderedStyles[key].current,
-        this.renderedStyles[key].amt
-      );
+    calculateSizePosition() {
+      this.rect = this.DOM.el.getBoundingClientRect();
+      this.distanceToTrigger = this.rect.width * 0.7;
     }
 
-    this.DOM.el.style.transform = `translate3d(${this.renderedStyles.tx.previous}px, ${this.renderedStyles.ty.previous}px, 0)`;
-    this.DOM.text.style.transform = `translate3d(${
-      -this.renderedStyles.tx.previous * 0.6
-    }px, ${-this.renderedStyles.ty.previous * 0.6}px, 0)`;
+    initEvents() {
+      window.addEventListener("resize", () => this.calculateSizePosition());
+      window.addEventListener("mousemove", (ev) => {
+        this.mousepos = getMousePos(ev);
+      });
+    }
 
-    requestAnimationFrame(() => this.render());
-  }
+    render() {
+      // 🔥 Update rect *every frame* so each button works independently
+      this.calculateSizePosition();
 
-  enter() {
-    this.state.hover = true;
-    this.DOM.el.classList.add("button--hover");
-
-    gsap.killTweensOf(this.DOM.filler);
-    gsap.killTweensOf(this.DOM.textinner);
-
-    gsap
-      .timeline()
-      .to(this.DOM.filler, {
-        duration: 0.5,
-        ease: "Power3.easeOut",
-        startAt: { y: "75%" },
-        y: "0%",
-      })
-      .to(
-        this.DOM.textinner,
-        {
-          duration: 0.1,
-          ease: "Power3.easeOut",
-          opacity: 0,
-          y: "-10%",
-        },
-        0
-      )
-      .to(
-        this.DOM.textinner,
-        {
-          duration: 0.25,
-          ease: "Power3.easeOut",
-          startAt: { y: "30%", opacity: 1 },
-          opacity: 1,
-          y: "0%",
-        },
-        0.1
+      const dist = distance(
+        this.mousepos.x,
+        this.mousepos.y,
+        this.rect.left + this.rect.width / 2,
+        this.rect.top + this.rect.height / 2
       );
-  }
 
-  leave() {
-    this.state.hover = false;
-    this.DOM.el.classList.remove("button--hover");
+      let x = 0,
+        y = 0;
 
-    gsap.killTweensOf(this.DOM.filler);
-    gsap.killTweensOf(this.DOM.textinner);
+      if (dist < this.distanceToTrigger) {
+        if (!this.state.hover) this.enter();
+        x = (this.mousepos.x - (this.rect.left + this.rect.width / 2)) * 0.2;
+        y = (this.mousepos.y - (this.rect.top + this.rect.height / 2)) * 0.2;
+      } else if (this.state.hover) {
+        this.leave();
+      }
 
-    gsap
-      .timeline()
-      .to(this.DOM.filler, {
-        duration: 0.4,
-        ease: "Power3.easeOut",
-        y: "-75%",
-      })
-      .to(
-        this.DOM.textinner,
-        {
-          duration: 0.1,
+      this.renderedStyles.tx.current = x;
+      this.renderedStyles.ty.current = y;
+
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].previous = lerp(
+          this.renderedStyles[key].previous,
+          this.renderedStyles[key].current,
+          this.renderedStyles[key].amt
+        );
+      }
+
+      this.DOM.el.style.transform = `translate3d(${this.renderedStyles.tx.previous}px, ${this.renderedStyles.ty.previous}px, 0)`;
+      this.DOM.text.style.transform = `translate3d(${
+        -this.renderedStyles.tx.previous * 0.6
+      }px, ${-this.renderedStyles.ty.previous * 0.6}px, 0)`;
+
+      requestAnimationFrame(() => this.render());
+    }
+
+    enter() {
+      this.state.hover = true;
+      this.DOM.el.classList.add("button--hover");
+
+      gsap.killTweensOf(this.DOM.filler);
+      gsap.killTweensOf(this.DOM.textinner);
+
+      gsap
+        .timeline()
+        .to(this.DOM.filler, {
+          duration: 0.5,
           ease: "Power3.easeOut",
-          opacity: 0,
-          y: "10%",
-        },
-        0
-      )
-      .to(
-        this.DOM.textinner,
-        {
-          duration: 0.25,
-          ease: "Power3.easeOut",
-          startAt: { y: "-30%", opacity: 1 },
-          opacity: 1,
+          startAt: { y: "75%" },
           y: "0%",
-        },
-        0.1
-      );
+        })
+        .to(
+          this.DOM.textinner,
+          {
+            duration: 0.1,
+            ease: "Power3.easeOut",
+            opacity: 0,
+            y: "-10%",
+          },
+          0
+        )
+        .to(
+          this.DOM.textinner,
+          {
+            duration: 0.25,
+            ease: "Power3.easeOut",
+            startAt: { y: "30%", opacity: 1 },
+            opacity: 1,
+            y: "0%",
+          },
+          0.1
+        );
+    }
+
+    leave() {
+      this.state.hover = false;
+      this.DOM.el.classList.remove("button--hover");
+
+      gsap.killTweensOf(this.DOM.filler);
+      gsap.killTweensOf(this.DOM.textinner);
+
+      gsap
+        .timeline()
+        .to(this.DOM.filler, {
+          duration: 0.4,
+          ease: "Power3.easeOut",
+          y: "-75%",
+        })
+        .to(
+          this.DOM.textinner,
+          {
+            duration: 0.1,
+            ease: "Power3.easeOut",
+            opacity: 0,
+            y: "10%",
+          },
+          0
+        )
+        .to(
+          this.DOM.textinner,
+          {
+            duration: 0.25,
+            ease: "Power3.easeOut",
+            startAt: { y: "-30%", opacity: 1 },
+            opacity: 1,
+            y: "0%",
+          },
+          0.1
+        );
+    }
   }
+
+  const buttons = document.querySelectorAll(".button");
+  buttons.forEach((btn) => new ButtonCtrl(btn));
 }
-
-const buttons = document.querySelectorAll(".button");
-buttons.forEach((btn) => new ButtonCtrl(btn));

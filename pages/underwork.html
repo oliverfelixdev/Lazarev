@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Underwork</title>
+    <title>Lazarev : Digital Design Agency Underwork</title>
     <link rel="shortcut icon" href="../assets/img/favicon.gif" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/utils.css">
@@ -35,7 +35,7 @@
             font-weight: 100;
             line-height: 1;
             text-align: center;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         h2 {
@@ -72,11 +72,9 @@
     <section class="overlay" id="creditsOverlay">
         <div class="credits-modal">
             <button class="close-btn" onclick="closeCredits()">×</button>
-
-            <div class="credits-image">
+            <a href="https://github.com/oliverfelixdev/" class="credits-image">
                 <img src="../assets/img/oliver.png" alt="Credits Image" />
-            </div>
-
+            </a>
             <div class="credits-content">
                 <h2>Credits</h2>
                 <div class="credits-grid">
@@ -96,15 +94,26 @@
     <script src="../js/megneticButton.js"></script>
     <script>
         const title = document.getElementById("dynamicTitle");
-        window.addEventListener("mousemove", (e) => {
-            const screenWidth = window.innerWidth;
-            const mouseX = e.clientX;
-            const fontWeight = Math.min(
-                900,
-                Math.max(100, (mouseX / screenWidth) * 800 + 100)
-            );
+
+        let t = 0;
+
+        function animateFontWeight() {
+            // Oscillate between 100 and 900 using sine wave
+            const minWeight = 100;
+            const maxWeight = 900;
+            const weightRange = maxWeight - minWeight;
+
+            const fontWeight = minWeight + (Math.sin(t) * 0.5 + 0.5) * weightRange;
+
             title.style.fontWeight = fontWeight;
-        });
+            t += 0.012; // speed of oscillation
+
+            requestAnimationFrame(animateFontWeight);
+        }
+
+        animateFontWeight(); // start the loop
+
+        // Your existing credit show/hide logic
         document.querySelector(".credit-show-btn").addEventListener("click", () => {
             document.getElementById("creditsOverlay").style.display = "flex";
         });
@@ -113,6 +122,7 @@
             document.getElementById("creditsOverlay").style.display = "none";
         }
     </script>
+
 </body>
 
 </html>
